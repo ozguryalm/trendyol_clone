@@ -12,8 +12,11 @@ ThemeData myDarkTheme = ThemeData(
     ),
     colorScheme: const ColorScheme.dark(
       primary: orangeColor,
-      secondary: Colors.white,
+      secondary: orangeColor,
       brightness: Brightness.dark,
     ),
     textTheme: const TextTheme(
+        bodySmall: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
         bodyLarge: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)));

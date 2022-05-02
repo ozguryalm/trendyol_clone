@@ -12,8 +12,11 @@ ThemeData myLightTheme = ThemeData(
     shadowColor: Colors.grey,
     colorScheme: const ColorScheme.light(
         secondary: orangeColor,
-        primary: Colors.white,
+        primary: orangeColor,
         brightness: Brightness.light,
         background: Colors.white),
     textTheme: const TextTheme(
+        bodySmall: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
         bodyLarge: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)));

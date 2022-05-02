@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:trendyol_clone/view/home/page_home.dart';
-
-import '../../core/providers/provider_home_page/provider_home_page.dart';
-
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -13,11 +9,6 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
-  late final TabController _tabController = TabController(
-      initialIndex: context.watch<HomeProvider>().pageindex,
-      vsync: this,
-      length: 3);
-
   @override
   void initState() {
     super.initState();
@@ -28,13 +19,34 @@ class _MainPageState extends State<MainPage>
     return Scaffold(
       body: const HomePage(),
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Anasayfa"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.grain_outlined), label: "Trenyol Go"),
+        type: BottomNavigationBarType.fixed,
+        iconSize: 25,
+        selectedLabelStyle: TextStyle(
+            fontSize: Theme.of(context).textTheme.bodySmall!.fontSize,
+            letterSpacing: 0,
+            fontWeight: FontWeight.w300),
+        unselectedLabelStyle: TextStyle(
+            fontSize: Theme.of(context).textTheme.bodySmall!.fontSize,
+            letterSpacing: 0,
+            fontWeight: FontWeight.w300),
+        items: [
+          buildBottomBarItem(icon: Icons.home, label: "Anasayfa"),
+          buildBottomBarItem(icon: Icons.grain_outlined, label: "Trenyol Go"),
+          buildBottomBarItem(icon: Icons.favorite, label: "Favorilerim"),
+          buildBottomBarItem(icon: Icons.shopping_cart, label: "Sepetim"),
+          buildBottomBarItem(icon: Icons.person, label: "Profilim"),
         ],
-        
       ),
     );
+  }
+
+  BottomNavigationBarItem buildBottomBarItem(
+      {required String label, required IconData icon}) {
+    return BottomNavigationBarItem(
+        icon: Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: Icon(icon),
+        ),
+        label: label);
   }
 }
