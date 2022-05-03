@@ -8,3 +8,5 @@ const Color foregroundColorDark = Color(0xff1B1B1B);
 const Color bacgroundColorDark = Color(0xff222222);
 
 const double defaultPadding = 18;
+
+const String assetSliderPictures = "assets/sliderPictures/";
