@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:provider/provider.dart';
+import 'package:trendyol_clone/core/providers/provider_home_page/provider_women_page.dart';
 import 'package:trendyol_clone/core/providers/provider_main_page/provider_main_page.dart';
 import 'package:trendyol_clone/core/routes/app_routes.dart';
 import 'core/providers/provider_home_page/provider_home_page.dart';
@@ -24,6 +25,9 @@ void main() {
         ChangeNotifierProvider(
           create: (_) => HomeProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => WomenProvider(),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -43,7 +47,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         routes: routes,
         initialRoute: MAIN,
-        themeMode: ThemeMode.light,
+        themeMode: ThemeMode.dark,
         darkTheme: myDarkTheme,
         theme: myLightTheme,
       );

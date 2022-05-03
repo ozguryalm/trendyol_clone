@@ -26,9 +26,8 @@ class HomeProvider extends State<HomePage>
 
   void onPageChange(int index) {
     if (index != 2) {
-      pageOldindex = pageIndex;
-    }
-
+      pageOldindex = index;
+    } else {}
     pageindex = index;
     tabController.animateTo(index);
     changeAllCategoriesStatus(index == 2 ? true : false);
